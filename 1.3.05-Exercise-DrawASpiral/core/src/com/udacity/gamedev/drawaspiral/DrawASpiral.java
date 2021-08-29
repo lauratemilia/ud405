@@ -54,13 +54,13 @@ public class DrawASpiral extends ApplicationAdapter {
             int yOffset = yStep * i;
 
             // Make this coil reach back to the outer coil
-            Vector2 point1 = new Vector2(xOffset, yOffset);
+            Vector2 point1 = new Vector2(xOffset - xStep, yOffset);
             Vector2 point2 = new Vector2(screenWidth - xOffset, yOffset);
             Vector2 point3 = new Vector2(screenWidth - xOffset, screenHeight - yOffset);
-            Vector2 point4 = new Vector2(xStep * (i+1), screenHeight - yOffset);
+            Vector2 point4 = new Vector2(xOffset, screenHeight - yOffset);
 
             // Make this coil stop before connecting back to itself
-            Vector2 point5 = new Vector2(xStep * (i+1), yStep * (i+1));
+            Vector2 point5 = new Vector2(xOffset, yOffset + yStep);
             //Vector2 point5 = new Vector2(xOffset, yOffset);
 
             shapeRenderer.setColor(Color.YELLOW);
