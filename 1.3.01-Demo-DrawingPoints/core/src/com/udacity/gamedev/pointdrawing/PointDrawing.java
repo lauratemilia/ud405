@@ -91,7 +91,7 @@ public class PointDrawing implements ApplicationListener {
 
     /**
      * Called when the game loses focus, or when it's about to be destroyed. This is the time to
-     * save any state you want to persist.
+     * save any state you want to persist (ex how many lives the player has left)
      */
     @Override
     public void pause() {

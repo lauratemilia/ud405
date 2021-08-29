@@ -60,6 +60,7 @@ public class Starfield extends ApplicationAdapter {
             int x = random.nextInt(screenWidth);
             int y = random.nextInt(screenHeight);
             stars.add(new Vector2(x, y));
+
         }
     }
 

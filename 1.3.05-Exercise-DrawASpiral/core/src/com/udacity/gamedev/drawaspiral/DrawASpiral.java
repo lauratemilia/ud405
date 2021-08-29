@@ -2,6 +2,7 @@ package com.udacity.gamedev.drawaspiral;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
@@ -21,7 +22,7 @@ import com.badlogic.gdx.math.Vector2;
 public class DrawASpiral extends ApplicationAdapter {
 
     // How many rectangles/coils to draw
-    private static final int COILS = 20;
+    private static final int COILS = 10;
     ShapeRenderer shapeRenderer;
 
     @Override
@@ -52,18 +53,23 @@ public class DrawASpiral extends ApplicationAdapter {
             int xOffset = xStep * i;
             int yOffset = yStep * i;
 
-            // TODO: Make this coil reach back to the outer coil
+            // Make this coil reach back to the outer coil
             Vector2 point1 = new Vector2(xOffset, yOffset);
             Vector2 point2 = new Vector2(screenWidth - xOffset, yOffset);
             Vector2 point3 = new Vector2(screenWidth - xOffset, screenHeight - yOffset);
-            Vector2 point4 = new Vector2(xOffset, screenHeight - yOffset);
+            Vector2 point4 = new Vector2(xStep * (i+1), screenHeight - yOffset);
 
-            // TODO: Make this coil stop before connecting back to itself
-            Vector2 point5 = new Vector2(xOffset, yOffset);
+            // Make this coil stop before connecting back to itself
+            Vector2 point5 = new Vector2(xStep * (i+1), yStep * (i+1));
+            //Vector2 point5 = new Vector2(xOffset, yOffset);
 
+            shapeRenderer.setColor(Color.YELLOW);
             shapeRenderer.line(point1, point2);
+            shapeRenderer.setColor(Color.BLUE);
             shapeRenderer.line(point2, point3);
+            shapeRenderer.setColor(Color.RED);
             shapeRenderer.line(point3, point4);
+            shapeRenderer.setColor(Color.GREEN);
             shapeRenderer.line(point4, point5);
         }
         shapeRenderer.end();
