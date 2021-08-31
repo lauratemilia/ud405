@@ -40,10 +40,16 @@ public class RectangularFlower extends ApplicationAdapter {
         shapeRenderer.rectLine(100, 0, 100, 300, 20);
 
         // TODO: Draw two leaves on the stem
+        shapeRenderer.rect(0, 150, 50, 50, 100, 100, 0.5f, 1, 45);
+        shapeRenderer.rect(100, 120, 50, 50, 100, 100, 0.5f, 1, 135);
 
         // TODO: Set the active color to yellow
-
+        shapeRenderer.setColor(Color.YELLOW);
         // TODO: Use a loop to draw 20 of these petals in a circle
+        int steps = 20;
+        for (int i = 0; i < steps; i++) {
+            shapeRenderer.rect(50, 250, 50, 50, 100, 100, 1, 1, i*90/steps);
+        }
 
         float petalAngle = 45.0f;
         shapeRenderer.rect(100, 300, 0, 0, 40, 40, 1, 1, petalAngle);
